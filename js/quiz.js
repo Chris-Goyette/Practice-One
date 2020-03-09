@@ -74,7 +74,7 @@ let rank =
 // 6. Output results to the <main> element
 main.innerHTML = ` 
 <h1>You answered ${correctAnswers} out of 5 questions!</h1>
-
+<p>Rank: TBD</p>
 `
 
 
