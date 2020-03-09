@@ -2,53 +2,43 @@
   1. Store correct answers
    - When quiz begins, no answers are correct
 */
-let correctAnswers = 0 
-
-const answer1 = "coffee"; 
-const answer2 = "popcorn"; 
-const answer3 = "sushi"; 
-const answer4 = "icecream"; 
-const answer5 = "pepper"; 
+let correct = 0 //we set correct to 0 cuz this is the starting point. -me
 
 // 2. Store the rank of a player
-const rankOne = "Gold"; 
-const rankTwo = "Silver"; 
-const rankThree = "Bronze"; 
-const noRank = "Sorry, you did not rank."
-
-// 3. Select the <main> HTML element
-const main = document.querySelector("main"); 
+let rank; //we declare the variable but not assign anything yet cuz this will change. -me
 
 /*
   4. Ask at least 5 questions
    - Store each answer in a variable
    - Keep track of the number of correct answers
 */
+
+/* THE FOLLOWING COMMENT IS ME 
+- We prompt the user a question and store their response in the variable question1 and so on.
+- Then need create an if statements in order to keep track of the correct answer
+- Then use the "+=" or the "addition assignment operator" to add one to correct answers 
+*/
 const question1 = prompt("What do I like drinking every morning?"); 
-const question2 = prompt("What do I like to eat at the movies?"); 
-const question3 = prompt("What does Taylor and I like to eat for lunch?"); 
-const question4 = prompt("What does Taylor and I like to eat on Sundays?"); 
-const question5 = prompt("What's my cats name?"); 
-
-if (question1 === answer1) {
-  correctAnswers = 1; 
-} 
-
-if (question1 === answer1 && question2 === answer2 ) {
-  correctAnswers = 2; 
-} 
-
-if (question1 === answer1 && question2 === answer2 && question3 === answer3) {
-  correctAnswers = 3; 
-} 
-
-if (question1 === answer1 && question2 === answer2 && question3 === answer3 && question4 === answer4) {
-  correctAnswers = 4; 
-} 
-
-if (question1 === answer1 && question2 === answer2 && question3 === answer3 && question4 === answer4 && question5 === answer5 ) {
-  correctAnswers = 5; 
+if (question1 === "coffee") {
+  correct += 1; 
 }
+const question2 = prompt("What do I like to eat at the movies?"); 
+if (question2 === "popcorn") {
+  correct += 1; 
+}
+const question3 = prompt("What does Taylor and I like to eat for lunch?"); 
+if (question3 === "sushi") {
+  correct += 1; 
+}
+const question4 = prompt("What does Taylor and I like to eat on Sundays?"); 
+if (question4 === "icecream") {
+  correct += 1; 
+}
+const question5 = prompt("What's my cats name?"); 
+if (question5 === "pepper") {
+    correct +=1; 
+}
+
 
 
 /*
@@ -59,23 +49,25 @@ if (question1 === answer1 && question2 === answer2 && question3 === answer3 && q
    - 0 correct = No crown
 */
 
-if (correctAnswers === 5) {
-  console.log("You earned the Gold Crown!"); 
-} else if (correctAnswers === 3 || correctAnswers === 4) {
-  console.log("You earned the Silver Crown!"); 
-} else if (correctAnswers === 1 || correctAnswers === 2 ) {
-  console.log ("You earned the Bronze Crown!"); 
+//The following sets the rank variable based on the number of correct answers -me
+if (correct === 5) {
+  rank = "Gold"; 
+} else if (correct >= 3) {
+  rank = "Silver"; 
+} else if (correct >= 1) {
+  rank = "Bronze"; 
 } else {
-  console.log("You earned no crown."); 
+  rank = "No Rank"; 
 } 
 
-let rank = 
 
-// 6. Output results to the <main> element
-main.innerHTML = ` 
-<h1>You answered ${correctAnswers} out of 5 questions!</h1>
-<p>Rank: TBD</p>
-`
+// This selects the Main element -me
+const main = document.querySelector("main"); 
+
+// The below displays the info on the webpage. -me
+main.innerHTML = 
+`<h1>You answered ${correct} out of 5 questions!</h1>
+<p><strong>Rank:</strong> ${rank}</p>`
 
 
 
